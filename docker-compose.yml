@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:17
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: clubpoisson
+      POSTGRES_USER: clubpoisson
+      POSTGRES_PASSWORD: clubpoisson
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      PGHOST: postgres
+      PGDATABASE: clubpoisson
+      PGUSER: clubpoisson
+      PGPASSWORD: clubpoisson
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
