@@ -1,7 +1,12 @@
 import { describe, expect, test } from "bun:test";
 import { handleAuthRoutes } from "../auth/routes.ts";
 
-function jsonRequest(url: string, method: string, body: unknown, headers?: HeadersInit) {
+function jsonRequest(
+  url: string,
+  method: string,
+  body: unknown,
+  headers?: HeadersInit,
+) {
   return new Request(url, {
     method,
     headers: { "Content-Type": "application/json", ...(headers ?? {}) },
