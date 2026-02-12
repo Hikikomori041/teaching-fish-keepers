@@ -28,7 +28,7 @@ export default function HomePage() {
       </section>
 
       <div className="grid md:grid-cols-3 gap-6 mb-12">
-        <div className="bg-white rounded-xl shadow p-6">
+        <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
           <h3 className="text-xl font-semibold text-blue-800 mb-2">
             Communauté
           </h3>
@@ -36,7 +36,7 @@ export default function HomePage() {
             Échangez avec d'autres passionnés de poissons et partagez vos expériences.
           </p>
         </div>
-        <div className="bg-white rounded-xl shadow p-6">
+        <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
           <h3 className="text-xl font-semibold text-blue-800 mb-2">
             Savoir
           </h3>
@@ -44,7 +44,7 @@ export default function HomePage() {
             Apprenez l'entretien des espèces, la mise en place d'aquariums et la chimie de l'eau.
           </p>
         </div>
-        <div className="bg-white rounded-xl shadow p-6">
+        <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
           <h3 className="text-xl font-semibold text-blue-800 mb-2">
             Conservation
           </h3>
