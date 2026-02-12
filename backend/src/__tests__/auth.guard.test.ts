@@ -1,10 +1,10 @@
 import { describe, expect, test } from "bun:test";
-import { requireAuth } from "../auth/guard";
-import { createSession } from "../auth/sessions";
+import { requireAuth } from "../auth/guard.ts";
+import { createSession } from "../auth/sessions.ts";
 
 function makeRequest(token?: string) {
-  const headers: HeadersInit = {};
-  if (token) headers.Authorization = `Bearer ${token}`;
+  const headers = new Headers();
+  if (token) headers.set("Authorization", `Bearer ${token}`);
   return new Request("http://localhost/api/events", { headers });
 }
 
