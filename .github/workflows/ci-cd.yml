@@ -143,3 +143,22 @@ jobs:
          push: true
          tags: ${{ steps.meta-back.outputs.tags }}
          labels: ${{ steps.meta-back.outputs.labels }}
+
+  deploy:
+    name: Deploiement
+    runs-on: ubuntu-latest
+    needs: [ backend, frontend ]
+    if: ${{ always() && github.event_name != 'pull_request' && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+            docker pull ${{ env.REGISTRY }}/hikikomori041/teaching-fish-keepers/backend:main
+            docker pull ${{ env.REGISTRY }}/hikikomori041/teaching-fish-keepers/frontend:main
+            docker compose up -d --force-recreate
