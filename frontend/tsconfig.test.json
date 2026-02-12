@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "types": ["bun-types", "bun-types/test", "@testing-library/jest-dom", "jsdom"],
+    "noEmit": true
+  },
+  "include": ["src/__tests__", "src/**/*.test.ts", "src/**/*.test.tsx"],
+  "exclude": []
+}
