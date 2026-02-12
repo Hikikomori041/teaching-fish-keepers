@@ -1,5 +1,6 @@
 import "@testing-library/jest-dom";
-import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";import { JSDOM } from "jsdom";
+import { JSDOM } from "jsdom";
+import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { AuthContext, type AuthContextValue } from "../contexts/AuthContext";
 import LoginPage from "../pages/LoginPage";
