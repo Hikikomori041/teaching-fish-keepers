@@ -33,7 +33,10 @@ jobs:
           bun-version: latest
 
       - name: Dependencies install
-        run: bun install --frozen-lockfile
+        run: bun install
+
+      - name: Run lint
+        run: bun run lint
 
       - name: Run tests
         run: bun run test
@@ -88,7 +91,7 @@ jobs:
           bun-version: latest
 
       - name: Dependencies install
-        run: bun install --frozen-lockfile
+        run: bun install
 
       - name: Run tests
         run: bun run test
