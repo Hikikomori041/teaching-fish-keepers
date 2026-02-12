@@ -1,8 +1,14 @@
 import "@testing-library/jest-dom";
+import { JSDOM } from "jsdom";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import LoginPage from "../components/LoginPage";
-import { AuthContext, AuthContextValue } from "../context/AuthContext";
+import LoginPage from "../pages/LoginPage";
+import { AuthContext, type AuthContextValue } from "../contexts/AuthContext";
+
+const dom = new JSDOM("<!doctype html><html><body></body></html>");
+globalThis.window = dom.window as unknown as Window & typeof globalThis;
+globalThis.document = dom.window.document;
+globalThis.navigator = dom.window.navigator;
 
 
 function renderWithAuth(value: AuthContextValue) {
