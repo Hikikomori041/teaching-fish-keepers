@@ -20,7 +20,7 @@ describe("auth routes", () => {
 
   test("login creates session and me returns authenticated", async () => {
     const loginReq = jsonRequest("http://localhost/api/auth/login", "POST", {
-      password: process.env.ADMIN_PASSWORD || "admin",});
+      password: process.env.ADMIN_PASSWORD || "admin",
     });
     const loginRes = await handleAuthRoutes(loginReq, new URL(loginReq.url));
     expect(loginRes?.status).toBe(200);
