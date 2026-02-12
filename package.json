@@ -1,4 +1,9 @@
 {
+  "scripts": {
+  "check": "biome check .",
+  "check:fix": "biome check --write ."
+  },
+
   "dependencies": {},
   "devDependencies": {
     "@biomejs/biome": "2.3.15"
