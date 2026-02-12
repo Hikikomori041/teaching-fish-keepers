@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { JSDOM } from "jsdom";
-import { render } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import EventCard from "../components/EventCard";
 import type { Event } from "../types";
 
@@ -8,6 +8,11 @@ const dom = new JSDOM("<!doctype html><html><body></body></html>");
 globalThis.window = dom.window as unknown as Window & typeof globalThis;
 globalThis.document = dom.window.document;
 globalThis.navigator = dom.window.navigator;
+
+afterEach(() => {
+  cleanup();
+  document.body.innerHTML = "";
+});
 
 test("renders event details", () => {
   const event: Event = {
