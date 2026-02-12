@@ -5,9 +5,9 @@ Ceci est le dépôt du projet de Méthodologies et environnement de développeme
 ## Groupe
 
 - BLACHÈRE Nicolas
-- ORTEGA Erwan
 - MORETTI Thomas
 - NAJI Brahim
+- ORTEGA Erwan
 
 ## Comment lancer le projet en local (développement et Docker) ?
 
