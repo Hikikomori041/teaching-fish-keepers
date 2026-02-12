@@ -50,6 +50,7 @@ export default function App() {
                   Administration
                 </Link>
                 <button
+                  type="button"
                   onClick={handleLogout}
                   className="inline-flex items-center gap-2 hover:underline cursor-pointer"
                 >

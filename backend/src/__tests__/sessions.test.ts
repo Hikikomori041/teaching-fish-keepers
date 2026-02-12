@@ -1,5 +1,9 @@
 import { describe, expect, test } from "bun:test";
-import { createSession, deleteSession, validateSession } from "../auth/sessions";
+import {
+  createSession,
+  deleteSession,
+  validateSession,
+} from "../auth/sessions";
 
 describe("sessions", () => {
   test("createSession returns a valid token", () => {
