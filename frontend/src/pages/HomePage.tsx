@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import type { Event } from "../types";
 import { listEvents } from "../api/events";
 import EventCard from "../components/EventCard";
+import type { Event } from "../types";
 
 export default function HomePage() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -28,29 +28,31 @@ export default function HomePage() {
       </section>
 
       <div className="grid md:grid-cols-3 gap-6 mb-12">
-        <div className="bg-white rounded-xl shadow p-6">
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">
+        <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
+          <h3 className="text-xl font-semibold text-blue-800 mb-2 text-center">
             Communauté
           </h3>
-          <p className="text-gray-600">
-            Échangez avec d'autres passionnés de poissons et partagez vos expériences.
+          <p className="text-gray-600 text-center">
+            Échangez avec d'autres passionnés de poissons et partagez vos
+            expériences.
           </p>
         </div>
-        <div className="bg-white rounded-xl shadow p-6">
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">
+        <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
+          <h3 className="text-xl font-semibold text-blue-800 mb-2 text-center">
             Savoir
           </h3>
-          <p className="text-gray-600">
-            Apprenez l'entretien des espèces, la mise en place d'aquariums et la chimie de l'eau.
+          <p className="text-gray-600 text-center">
+            Apprenez l'entretien des espèces, la mise en place d'aquariums et la
+            chimie de l'eau.
           </p>
         </div>
-        <div className="bg-white rounded-xl shadow p-6">
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">
+        <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
+          <h3 className="text-xl font-semibold text-blue-800 mb-2 text-center">
             Conservation
           </h3>
-          <p className="text-gray-600">
-            Soutenez les efforts de protection des écosystèmes aquatiques et
-            des espèces menacées.
+          <p className="text-gray-600 text-center">
+            Soutenez les efforts de protection des écosystèmes aquatiques et des
+            espèces menacées.
           </p>
         </div>
       </div>
@@ -60,9 +62,11 @@ export default function HomePage() {
           Événements à venir
         </h2>
         {loading ? (
-          <p className="text-gray-500">Chargement des événements...</p>
+          <p className="text-gray-500 text-center">
+            Chargement des événements...
+          </p>
         ) : events.length === 0 ? (
-          <p className="text-gray-500">Aucun événement à venir.</p>
+          <p className="text-gray-500 text-center">Aucun événement à venir.</p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((event) => (

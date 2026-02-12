@@ -11,10 +11,37 @@ permissions:
   packages: write
 
 jobs:
+<<<<<<< HEAD
+=======
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Bun install
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Dependencies install
+        run: bun install
+
+      - name: Run lint
+        run: bun run check
+
+>>>>>>> dd469cbdaaeada7feb1cd082cf3ef0a219b9f8d4
   frontend:
     name: Frontend
     runs-on: ubuntu-latest
 
+<<<<<<< HEAD
+=======
+    needs: lint
+
+>>>>>>> dd469cbdaaeada7feb1cd082cf3ef0a219b9f8d4
     permissions:
       contents: read
       packages: write
@@ -33,7 +60,11 @@ jobs:
           bun-version: latest
 
       - name: Dependencies install
+<<<<<<< HEAD
         run: bun install --frozen-lockfile
+=======
+        run: bun install
+>>>>>>> dd469cbdaaeada7feb1cd082cf3ef0a219b9f8d4
 
       - name: Run tests
         run: bun run test
@@ -70,6 +101,11 @@ jobs:
     name: Backend
     runs-on: ubuntu-latest
 
+<<<<<<< HEAD
+=======
+    needs: lint
+
+>>>>>>> dd469cbdaaeada7feb1cd082cf3ef0a219b9f8d4
     permissions:
       contents: read
       packages: write
@@ -88,7 +124,11 @@ jobs:
           bun-version: latest
 
       - name: Dependencies install
+<<<<<<< HEAD
         run: bun install --frozen-lockfile
+=======
+        run: bun install
+>>>>>>> dd469cbdaaeada7feb1cd082cf3ef0a219b9f8d4
 
       - name: Run tests
         run: bun run test

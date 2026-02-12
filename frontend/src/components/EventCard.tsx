@@ -13,7 +13,7 @@ function formatDate(dateStr: string): string {
 
 export default function EventCard({ event }: { event: Event }) {
   return (
-    <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-2">
+    <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-2 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
       {event.image_url && (
         <img
           src={event.image_url}
