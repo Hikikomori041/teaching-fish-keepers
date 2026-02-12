@@ -33,7 +33,8 @@ export default function HomePage() {
             Communauté
           </h3>
           <p className="text-gray-600 text-center">
-            Échangez avec d'autres passionnés de poissons et partagez vos expériences.
+            Échangez avec d'autres passionnés de poissons et partagez vos
+            expériences.
           </p>
         </div>
         <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
@@ -41,7 +42,8 @@ export default function HomePage() {
             Savoir
           </h3>
           <p className="text-gray-600 text-center">
-            Apprenez l'entretien des espèces, la mise en place d'aquariums et la chimie de l'eau.
+            Apprenez l'entretien des espèces, la mise en place d'aquariums et la
+            chimie de l'eau.
           </p>
         </div>
         <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
@@ -49,8 +51,8 @@ export default function HomePage() {
             Conservation
           </h3>
           <p className="text-gray-600 text-center">
-            Soutenez les efforts de protection des écosystèmes aquatiques et
-            des espèces menacées.
+            Soutenez les efforts de protection des écosystèmes aquatiques et des
+            espèces menacées.
           </p>
         </div>
       </div>
@@ -60,7 +62,9 @@ export default function HomePage() {
           Événements à venir
         </h2>
         {loading ? (
-          <p className="text-gray-500 text-center">Chargement des événements...</p>
+          <p className="text-gray-500 text-center">
+            Chargement des événements...
+          </p>
         ) : events.length === 0 ? (
           <p className="text-gray-500 text-center">Aucun événement à venir.</p>
         ) : (

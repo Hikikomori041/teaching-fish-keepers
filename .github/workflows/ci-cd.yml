@@ -11,9 +11,22 @@ permissions:
   packages: write
 
 jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run lint
+        run: bun run check
+
   frontend:
     name: Frontend
     runs-on: ubuntu-latest
+
+    needs: check
 
     permissions:
       contents: read
@@ -34,9 +47,6 @@ jobs:
 
       - name: Dependencies install
         run: bun install
-
-      - name: Run lint
-        run: bun run lint
 
       - name: Run tests
         run: bun run test
@@ -72,6 +82,8 @@ jobs:
   backend:
     name: Backend
     runs-on: ubuntu-latest
+
+    needs: check
 
     permissions:
       contents: read

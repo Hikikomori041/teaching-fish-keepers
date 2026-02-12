@@ -19,7 +19,10 @@ export default function App() {
             <h1 className="text-2xl font-bold">Club Poisson</h1>
           </Link>
           <nav className="ml-auto flex gap-4 text-sm items-center">
-            <Link to="/" className="inline-flex items-center gap-2 hover:underline">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 hover:underline"
+            >
               <svg
                 viewBox="0 0 24 24"
                 className="h-4 w-4"
