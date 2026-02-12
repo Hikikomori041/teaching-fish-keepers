@@ -11,9 +11,21 @@ Ceci est le dépôt du projet de Méthodologies et environnement de développeme
 
 ## Comment lancer le projet en local (développement et Docker) ?
 
+En local :
 Voir [le sujet initial](SUJET.md#le-projet-existant).
 
+Avec Docker :
+Lancer la commande `docker compose up -d --build` à la racine du projet pour construire les images et démarrer les conteneurs en arrière-plan.
+
 ## Architecture du pipeline CI/CD
+
+Le pipeline CI/CD est défini dans le fichier `.github/workflows/ci-cd.yml`. Il est déclenché à chaque push ou pull request sur la branche `main`. Le pipeline comprend les étapes suivantes : 
+1. **Checkout** : Récupère le code source du dépôt.
+2. **Check** : Exécute les linters pour le frontend et le backend pour assurer la qualité du code.
+3. **Test** : Exécute les tests unitaires.
+4. **Build** : Construit les images Docker pour le frontend et le backend.
+5. **Push** : Pousse les images construites vers un registre Docker.
+6. **Deploy** : Déploie l'application sur un environnement de production.
 
 ## Choix techniques & justifications
 
