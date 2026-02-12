@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { handleAuthRoutes } from "../auth/routes";
+import { handleAuthRoutes } from "../auth/routes.ts";
 
 function jsonRequest(url: string, method: string, body: unknown, headers?: HeadersInit) {
   return new Request(url, {
@@ -20,7 +20,7 @@ describe("auth routes", () => {
 
   test("login creates session and me returns authenticated", async () => {
     const loginReq = jsonRequest("http://localhost/api/auth/login", "POST", {
-      password: "admin",
+      password: process.env.ADMIN_PASSWORD || "admin",});
     });
     const loginRes = await handleAuthRoutes(loginReq, new URL(loginReq.url));
     expect(loginRes?.status).toBe(200);

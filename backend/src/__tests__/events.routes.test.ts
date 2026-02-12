@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { handleEventRoutes } from "../events/routes";
-import { createSession } from "../auth/sessions";
+import { handleEventRoutes } from "../events/routes.ts";
+import { createSession } from "../auth/sessions.ts";
 
 function jsonRequest(url: string, method: string, body: unknown, token?: string) {
   const headers: HeadersInit = { "Content-Type": "application/json" };
