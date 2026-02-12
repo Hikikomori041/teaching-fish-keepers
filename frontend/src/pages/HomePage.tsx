@@ -60,9 +60,9 @@ export default function HomePage() {
           Événements à venir
         </h2>
         {loading ? (
-          <p className="text-gray-500">Chargement des événements...</p>
+          <p className="text-gray-500 text-center">Chargement des événements...</p>
         ) : events.length === 0 ? (
-          <p className="text-gray-500">Aucun événement à venir.</p>
+          <p className="text-gray-500 text-center">Aucun événement à venir.</p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((event) => (

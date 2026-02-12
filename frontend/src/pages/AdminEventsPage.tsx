@@ -42,9 +42,9 @@ export default function AdminEventsPage() {
       </div>
 
       {loading ? (
-        <p className="text-gray-500">Chargement...</p>
+        <p className="text-gray-500 text-center">Chargement...</p>
       ) : events.length === 0 ? (
-        <p className="text-gray-500">Aucun événement pour le moment.</p>
+        <p className="text-gray-500 text-center">Aucun événement pour le moment.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
