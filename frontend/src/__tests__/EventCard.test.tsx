@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
-import { JSDOM } from "jsdom";
 import { render } from "@testing-library/react";
+import { JSDOM } from "jsdom";
 import EventCard from "../components/EventCard";
 import type { Event } from "../types";
 
