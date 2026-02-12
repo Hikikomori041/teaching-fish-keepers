@@ -19,6 +19,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Bun install
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Dependencies install
+        run: bun install
+
       - name: Run lint
         run: bun run check
 
