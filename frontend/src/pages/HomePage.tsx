@@ -29,26 +29,26 @@ export default function HomePage() {
 
       <div className="grid md:grid-cols-3 gap-6 mb-12">
         <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">
+          <h3 className="text-xl font-semibold text-blue-800 mb-2 text-center">
             Communauté
           </h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-center">
             Échangez avec d'autres passionnés de poissons et partagez vos expériences.
           </p>
         </div>
         <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">
+          <h3 className="text-xl font-semibold text-blue-800 mb-2 text-center">
             Savoir
           </h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-center">
             Apprenez l'entretien des espèces, la mise en place d'aquariums et la chimie de l'eau.
           </p>
         </div>
         <div className="bg-white rounded-xl shadow p-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">
+          <h3 className="text-xl font-semibold text-blue-800 mb-2 text-center">
             Conservation
           </h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-center">
             Soutenez les efforts de protection des écosystèmes aquatiques et
             des espèces menacées.
           </p>
