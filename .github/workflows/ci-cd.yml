@@ -54,7 +54,7 @@ jobs:
           bun-version: latest
 
       - name: Dependencies install
-        run: bun install=
+        run: bun install
 
       - name: Run tests
         run: bun run test
