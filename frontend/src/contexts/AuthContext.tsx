@@ -19,16 +19,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     async function verify() {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const res = await authApi.checkAuth(stored);
-        if (res.authenticated) {
-          setToken(stored);
-        } else {
-          localStorage.removeItem(STORAGE_KEY);
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          const res = await authApi.checkAuth(stored);
+          if (res.authenticated) {
+            setToken(stored);
+          } else {
+            localStorage.removeItem(STORAGE_KEY);
+          }
         }
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
     verify();
   }, []);

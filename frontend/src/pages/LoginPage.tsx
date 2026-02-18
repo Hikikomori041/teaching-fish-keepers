@@ -16,9 +16,14 @@ export default function LoginPage() {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
-    const err = await login(password);
-    if (err) {
-      setError(err);
+    try {
+      const err = await login(password);
+      if (err) {
+        setError(err);
+      }
+    } catch {
+      setError("Erreur de connexion");
+    } finally {
       setSubmitting(false);
     }
   }
