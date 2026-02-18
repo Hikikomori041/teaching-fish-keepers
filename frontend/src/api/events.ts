@@ -2,6 +2,19 @@ import type { Event, EventInput } from "../types";
 
 const BASE = "/api/events";
 
+async function parseJsonSafe<T>(res: Response): Promise<T | null> {
+  const contentType = res.headers.get("content-type") ?? "";
+  if (!contentType.includes("application/json")) {
+    return null;
+  }
+
+  try {
+    return (await res.json()) as T;
+  } catch {
+    return null;
+  }
+}
+
 function authHeaders(): Record<string, string> {
   const token = localStorage.getItem("club_poisson_token");
   return token ? { Authorization: `Bearer ${token}` } : {};
@@ -11,13 +24,17 @@ export async function listEvents(all = false): Promise<Event[]> {
   const url = all ? `${BASE}?all=true` : BASE;
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch events");
-  return res.json();
+  const data = await parseJsonSafe<Event[]>(res);
+  if (!data) throw new Error("Invalid server response");
+  return data;
 }
 
 export async function getEvent(id: number): Promise<Event> {
   const res = await fetch(`${BASE}/${id}`);
   if (!res.ok) throw new Error("Failed to fetch event");
-  return res.json();
+  const data = await parseJsonSafe<Event>(res);
+  if (!data) throw new Error("Invalid server response");
+  return data;
 }
 
 export async function createEvent(input: EventInput): Promise<Event> {
@@ -27,7 +44,9 @@ export async function createEvent(input: EventInput): Promise<Event> {
     body: JSON.stringify(input),
   });
   if (!res.ok) throw new Error("Failed to create event");
-  return res.json();
+  const data = await parseJsonSafe<Event>(res);
+  if (!data) throw new Error("Invalid server response");
+  return data;
 }
 
 export async function updateEvent(
@@ -40,7 +59,9 @@ export async function updateEvent(
     body: JSON.stringify(input),
   });
   if (!res.ok) throw new Error("Failed to update event");
-  return res.json();
+  const data = await parseJsonSafe<Event>(res);
+  if (!data) throw new Error("Invalid server response");
+  return data;
 }
 
 export async function deleteEvent(id: number): Promise<void> {
